@@ -1,0 +1,7 @@
+# Only the site folders are tracked; client PDFs and source images stay local
+/*
+!/.gitignore
+!/rts/
+Thumbs.db
+desktop.ini
+.DS_Store

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Value My Trade | Robertson Truck Sales</title>
+  <meta name="description" content="Get a value for your truck trade-in. Add the year, make, model and a few photos and a Robertson Truck Sales rep will follow up.">
+  <meta name="theme-color" content="#050a1a">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/v2.css">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></g></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></g></symbol>
+</svg>
+
+<div class="progress" id="progress"></div>
+
+<header class="nav" id="nav">
+  <a href="index.html" class="nav__logo" aria-label="Robertson Truck Sales home"><img src="images/rts-logo-white.svg" alt="Robertson Truck Sales" width="170" height="46"></a>
+  <nav class="nav__links" aria-label="Main">
+    <a href="inventory.html" class="nav__inv">Inventory</a>
+    <a href="trade.html" class="is-active" aria-current="page">Value My Trade</a>
+    <a href="capabilities.html">Capabilities</a>
+    <a href="about.html">About Us</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+  <div class="nav__right">
+    <a href="tel:7403974969" class="nav__phone"><svg><use href="#i-phone"/></svg><span>740-397-4969</span></a>
+    <a href="inventory.html" class="btn btn--red btn--sm"><span>View Inventory</span></a>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <nav>
+    <a href="inventory.html" class="menu__inv"><small>01</small>Inventory</a>
+    <a href="trade.html"><small>02</small>Value My Trade</a>
+    <a href="capabilities.html"><small>03</small>Capabilities</a>
+    <a href="about.html"><small>04</small>About Us</a>
+    <a href="gallery.html"><small>05</small>Gallery</a>
+    <a href="blog.html"><small>06</small>Blog</a>
+    <a href="contact.html"><small>07</small>Contact Us</a>
+    <a href="rtg.html"><small>08</small>Robertson Truck Group</a>
+  </nav>
+  <div class="menu__foot">
+    <a href="tel:7403974969">740-397-4969</a>
+    <span>8920 Columbus Rd., Mount Vernon, OH 43050</span>
+  </div>
+</div>
+
+<main>
+  <section class="phead">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Home</a>/<span>Value My Trade</span></nav>
+      <h1>Value My <span class="grad">Trade</span></h1>
+      <p>Tell us about your truck and add a few photos. It takes about two minutes, and a sales rep follows up with a number.</p>
+    </div>
+  </section>
+
+  <section class="wizp">
+    <div class="wrap wizp__grid">
+      <div>
+        <form class="wiz" data-kind="trade" data-company="Robertson Truck Sales" novalidate>
+          <ol class="steps">
+            <li><span>Your truck</span></li>
+            <li><span>Photos</span></li>
+            <li><span>Contact</span></li>
+            <li><span>Review</span></li>
+          </ol>
+
+          <!-- Step 1 -->
+          <section class="wstep" aria-label="Step 1 of 4: Your truck">
+            <h2>Your truck</h2>
+            <p>Year, make and model are all we need to start. The more you add, the more accurate the number.</p>
+            <div class="fgrid fgrid--3">
+              <div class="ff">
+                <label for="tYear">Year <i>*</i></label>
+                <select id="tYear" name="year" required data-label="Year"><option value="">Select</option></select>
+                <span class="ff__err">Choose a year</span>
+              </div>
+              <div class="ff">
+                <label for="tMake">Make <i>*</i></label>
+                <input id="tMake" name="make" list="makes" required data-label="Make" placeholder="e.g. Freightliner">
+                <datalist id="makes"><option>Freightliner</option><option>International</option><option>Kenworth</option><option>Peterbilt</option><option>Mack</option><option>Volvo</option><option>Western Star</option><option>Isuzu</option><option>Hino</option><option>Ford</option><option>Ram</option><option>Chevrolet</option></datalist>
+                <span class="ff__err">Enter the make</span>
+              </div>
+              <div class="ff">
+                <label for="tModel">Model <i>*</i></label>
+                <input id="tModel" name="model" required data-label="Model" placeholder="e.g. M2 106">
+                <span class="ff__err">Enter the model</span>
+              </div>
+              <div class="ff">
+                <label for="tMiles">Mileage</label>
+                <input id="tMiles" name="miles" inputmode="numeric" data-label="Mileage" placeholder="e.g. 185,000">
+              </div>
+              <div class="ff">
+                <label for="tType">Truck type</label>
+                <select id="tType" name="type" data-label="Truck type">
+                  <option value="">Select</option><option>Dump truck</option><option>Box truck</option><option>Flatbed</option><option>Day cab</option><option>Sleeper</option><option>Cab &amp; chassis</option><option>Rollback / wrecker</option><option>Pickup / service truck</option><option>Other</option>
+                </select>
+              </div>
+              <div class="ff">
+                <label for="tVin">VIN <small>(optional)</small></label>
+                <input id="tVin" name="vin" maxlength="17" pattern="[A-HJ-NPR-Za-hj-npr-z0-9]{17}" data-label="VIN" placeholder="17 characters">
+                <span class="ff__err">A VIN has 17 letters and numbers</span>
+              </div>
+              <div class="ff ff--full">
+                <span class="lbl" id="condL">Overall condition <i>*</i></span>
+                <div class="seg2" role="radiogroup" aria-labelledby="condL" data-required data-label="Condition">
+                  <label><input type="radio" name="cond" value="Excellent"><span>Excellent</span></label>
+                  <label><input type="radio" name="cond" value="Good"><span>Good</span></label>
+                  <label><input type="radio" name="cond" value="Fair"><span>Fair</span></label>
+                  <label><input type="radio" name="cond" value="Needs work"><span>Needs work</span></label>
+                </div>
+                <span class="ff__err">Pick the closest match</span>
+              </div>
+              <div class="ff ff--full">
+                <label for="tNotes">Anything we should know?</label>
+                <textarea id="tNotes" name="notes" data-label="Notes" placeholder="Recent work, body or equipment on it, known issues…"></textarea>
+              </div>
+              <input type="hidden" name="for" id="tFor" data-label="Trading toward">
+            </div>
+          </section>
+
+          <!-- Step 2 -->
+          <section class="wstep" aria-label="Step 2 of 4: Photos">
+            <h2>Add photos</h2>
+            <p>Tap each box to take or upload a photo. Clear, daylight photos get you the most accurate value.</p>
+            <div class="shots">
+              <label class="shot" data-required data-label="Front 3/4"><input type="file" accept="image/*" capture="environment" aria-label="Front three-quarter photo (required)"><svg><use href="#i-camera"/></svg><b>Front 3/4</b><small>Required</small></label>
+              <label class="shot" data-required data-label="Rear 3/4"><input type="file" accept="image/*" capture="environment" aria-label="Rear three-quarter photo (required)"><svg><use href="#i-camera"/></svg><b>Rear 3/4</b><small>Required</small></label>
+              <label class="shot" data-required data-label="Driver side"><input type="file" accept="image/*" capture="environment" aria-label="Driver side photo (required)"><svg><use href="#i-camera"/></svg><b>Driver side</b><small>Required</small></label>
+              <label class="shot" data-required data-label="Odometer"><input type="file" accept="image/*" capture="environment" aria-label="Odometer photo (required)"><svg><use href="#i-camera"/></svg><b>Odometer / dash</b><small>Required</small></label>
+              <label class="shot" data-label="Engine"><input type="file" accept="image/*" capture="environment" aria-label="Engine photo"><svg><use href="#i-camera"/></svg><b>Engine</b><small>Optional</small></label>
+              <label class="shot" data-label="Interior"><input type="file" accept="image/*" capture="environment" aria-label="Interior photo"><svg><use href="#i-camera"/></svg><b>Interior / cab</b><small>Optional</small></label>
+              <label class="shot" data-label="Tires"><input type="file" accept="image/*" capture="environment" aria-label="Tires photo"><svg><use href="#i-camera"/></svg><b>Tires</b><small>Optional</small></label>
+              <label class="shot" data-label="More photos"><input type="file" accept="image/*" multiple aria-label="Damage or more photos"><svg><use href="#i-camera"/></svg><b>Damage / more</b><small>Add several</small></label>
+            </div>
+            <div class="shots__note"><svg><use href="#i-info"/></svg><span><b>Placeholder shot list.</b> Ethan's exact required photos are still to be confirmed. This list will be updated to match (and shared with the Skeye check-in).</span></div>
+          </section>
+
+          <!-- Step 3 -->
+          <section class="wstep" aria-label="Step 3 of 4: Contact">
+            <h2>Where should we send your value?</h2>
+            <p>A Robertson Truck Sales rep will reach out. No spam, ever.</p>
+            <div class="fgrid">
+              <div class="ff"><label for="cFirst">First name <i>*</i></label><input id="cFirst" name="first" required autocomplete="given-name" data-label="First name"><span class="ff__err">Enter your first name</span></div>
+              <div class="ff"><label for="cLast">Last name</label><input id="cLast" name="last" autocomplete="family-name" data-label="Last name"></div>
+              <div class="ff"><label for="cPhone">Phone <i>*</i></label><input id="cPhone" name="phone" type="tel" required autocomplete="tel" data-label="Phone"><span class="ff__err">Enter a 10-digit phone number</span></div>
+              <div class="ff"><label for="cEmail">Email</label><input id="cEmail" name="email" type="email" autocomplete="email" data-label="Email"><span class="ff__err">Check the email address</span></div>
+              <div class="ff"><label for="cZip">ZIP code</label><input id="cZip" name="zip" inputmode="numeric" maxlength="5" autocomplete="postal-code" data-label="ZIP"></div>
+              <div class="ff">
+                <span class="lbl" id="prefL">Best way to reach you</span>
+                <div class="seg2" role="radiogroup" aria-labelledby="prefL" data-label="Contact by">
+                  <label><input type="radio" name="pref" value="Call" checked><span>Call</span></label>
+                  <label><input type="radio" name="pref" value="Text"><span>Text</span></label>
+                  <label><input type="radio" name="pref" value="Email"><span>Email</span></label>
+                </div>
+              </div>
+              <div class="ff ff--full">
+                <span class="lbl" id="buyL">Looking to buy a truck from us too?</span>
+                <div class="seg2" role="radiogroup" aria-labelledby="buyL" data-label="Buying too">
+                  <label><input type="radio" name="buy" value="Yes, in the next month"><span>Yes, within a month</span></label>
+                  <label><input type="radio" name="buy" value="Yes, in 1–3 months"><span>In 1–3 months</span></label>
+                  <label><input type="radio" name="buy" value="Not right now"><span>Not right now</span></label>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Step 4 -->
+          <section class="wstep" data-review aria-label="Step 4 of 4: Review">
+            <h2>Review and send</h2>
+            <p>Check the details below. You can go back to change anything.</p>
+            <dl class="review-list" data-review-list></dl>
+            <div class="ff" style="margin-top:18px">
+              <label class="fcheck"><input type="checkbox" required name="ok"> I agree to be contacted by Robertson Truck Sales about my trade.</label>
+              <span class="ff__err">Please check the box so we can contact you</span>
+            </div>
+          </section>
+
+          <div class="wnav">
+            <button type="button" class="btn btn--line" data-prev><span>Back</span></button>
+            <span></span>
+            <button type="button" class="btn btn--red" data-next><span>Continue</span><svg><use href="#i-arrow"/></svg></button>
+            <button type="submit" class="btn btn--red" data-submit hidden><span>Send for my value</span><svg><use href="#i-arrow"/></svg></button>
+          </div>
+        </form>
+
+        <div class="wiz done" id="done" hidden>
+          <div class="done__ic"><svg><use href="#i-check"/></svg></div>
+          <h2>Thanks<span data-name></span>! We've got it.</h2>
+          <p>A Robertson Truck Sales rep will review your truck and photos and follow up within one business day with your trade value.</p>
+          <span class="done__ref" data-ref></span>
+          <div class="done__acts">
+            <a href="inventory.html" class="btn btn--red"><span>Browse inventory</span><svg><use href="#i-arrow"/></svg></a>
+            <a href="tel:7403974969" class="btn btn--line"><span>Call 740-397-4969</span></a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="aside">
+        <div class="acard">
+          <h3>How it works</h3>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Tell us the year, make and model</li>
+            <li><svg><use href="#i-check"/></svg>Add a few photos from your phone</li>
+            <li><svg><use href="#i-check"/></svg>A sales rep follows up with your value</li>
+            <li><svg><use href="#i-check"/></svg>Put it toward any truck in our inventory</li>
+          </ul>
+        </div>
+        <div class="acard" id="forCard" hidden></div>
+        <div class="acard acard--red">
+          <h3>Rather talk it through?</h3>
+          <p>Call Robertson Truck Sales</p>
+          <a href="tel:7403974969" class="acard__phone">740-397-4969</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <img src="images/rts-logo-white.svg" alt="Robertson Truck Sales" width="220" height="59">
+      <nav aria-label="Footer">
+        <a href="inventory.html">Inventory</a><a href="trade.html">Value My Trade</a><a href="capabilities.html">Capabilities</a><a href="about.html">About Us</a><a href="blog.html">Blog</a><a href="contact.html">Contact Us</a><a href="rtg.html">Robertson Truck Group</a>
+      </nav>
+    </div>
+    <div class="foot__bottom">
+      <span>Robertson Truck Group © <span id="year">2026</span></span>
+      <nav aria-label="Legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Employee Portal</a><a href="#">Sitemap</a></nav>
+      <span class="foot__credit"><a href="#">Responsive Web Design Company</a> – <a href="#">Split Reef</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/inventory-data.js"></script>
+<script>
+  (function () {
+    var sel = document.getElementById('tYear'), now = new Date().getFullYear() + 1, h = '';
+    for (var y = now; y >= 1990; y--) h += '<option>' + y + '</option>';
+    sel.insertAdjacentHTML('beforeend', h);
+    // Trading toward a specific truck (from the inventory page)
+    var stock = new URLSearchParams(location.search).get('for');
+    var t = stock && (window.RTS_INVENTORY || []).filter(function (x) { return x.stock === stock; })[0];
+    if (t) {
+      document.getElementById('tFor').value = t.year + ' ' + t.make + ' ' + t.model + ' (#' + t.stock + ')';
+      var c = document.getElementById('forCard'); c.hidden = false;
+      c.innerHTML = '<h3>Trading toward</h3><div class="acard__item"><img src="' + t.img + '" alt=""><span><b>' + t.year + ' ' + t.make + ' ' + t.model + '</b><small>$' + t.price.toLocaleString('en-US') + ' · #' + t.stock + '</small></span></div>';
+    }
+  })();
+</script>
+<script src="js/chat.js"></script>
+<script src="js/site.js"></script>
+<script src="js/wizard.js"></script>
+</body>
+</html>

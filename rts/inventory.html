@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Truck Inventory | Robertson Truck Sales</title>
+  <meta name="description" content="Browse used medium and heavy-duty trucks at Robertson Truck Sales in Mount Vernon, Ohio. Search in plain English or filter by type, make, year, price and mileage.">
+  <meta name="theme-color" content="#050a1a">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/v2.css">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body class="mode-both">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c.4 4.6 2.4 7.6 8 8.4v1.2c-5.6.8-7.6 3.8-8 8.4h-1.2c-.4-4.6-2.4-7.6-8-8.4v-1.2c5.6-.8 7.6-3.8 8-8.4H12z"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 5h18M6 12h12M10 19h4"/></symbol>
+</svg>
+
+<div class="progress" id="progress"></div>
+
+<header class="nav" id="nav">
+  <a href="index.html" class="nav__logo" aria-label="Robertson Truck Sales home"><img src="images/rts-logo-white.svg" alt="Robertson Truck Sales" width="170" height="46"></a>
+  <nav class="nav__links" aria-label="Main">
+    <a href="inventory.html" class="nav__inv is-active" aria-current="page">Inventory</a>
+    <a href="trade.html">Value My Trade</a>
+    <a href="capabilities.html">Capabilities</a>
+    <a href="about.html">About Us</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+  <div class="nav__right">
+    <a href="tel:7403974969" class="nav__phone"><svg><use href="#i-phone"/></svg><span>740-397-4969</span></a>
+    <a href="trade.html" class="btn btn--red btn--sm"><span>Value My Trade</span></a>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <nav>
+    <a href="inventory.html" class="menu__inv"><small>01</small>Inventory</a>
+    <a href="trade.html"><small>02</small>Value My Trade</a>
+    <a href="capabilities.html"><small>03</small>Capabilities</a>
+    <a href="about.html"><small>04</small>About Us</a>
+    <a href="gallery.html"><small>05</small>Gallery</a>
+    <a href="blog.html"><small>06</small>Blog</a>
+    <a href="contact.html"><small>07</small>Contact Us</a>
+    <a href="rtg.html"><small>08</small>Robertson Truck Group</a>
+  </nav>
+  <div class="menu__foot">
+    <a href="tel:7403974969">740-397-4969</a>
+    <span>8920 Columbus Rd., Mount Vernon, OH 43050</span>
+  </div>
+</div>
+
+<main>
+  <section class="phead">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Home</a>/<span>Inventory</span></nav>
+      <h1>Truck <span class="grad">Inventory</span></h1>
+      <p>Medium and heavy-duty trucks, reconditioned and ready to work. Describe what you need, or filter on the left.</p>
+    </div>
+  </section>
+
+  <section class="invp">
+    <div class="wrap">
+      <!-- Option A: AI search -->
+      <form class="invp__ai" id="aiForm" autocomplete="off">
+        <div class="ai-search">
+          <div class="ai-search__border"></div>
+          <div class="ai-search__inner">
+            <span class="ai-search__ic"><svg><use href="#i-spark"/></svg></span>
+            <label for="aiQ" class="sr">Describe the truck you need</label>
+            <input id="aiQ" type="text" placeholder="e.g. Freightliner dump truck under $125k, 2019 or newer">
+            <button type="submit" class="ai-search__btn"><span>Find trucks</span><svg><use href="#i-arrow"/></svg></button>
+          </div>
+        </div>
+        <div class="ai-search__chips">
+          <button type="button" data-q="Tandem dump truck for construction under $130k">Dump truck under $130k</button>
+          <button type="button" data-q="Non-CDL box truck">Non-CDL box truck</button>
+          <button type="button" data-q="Cab and chassis ready to upfit, 2020 or newer">Chassis to upfit</button>
+          <button type="button" data-q="Heavy duty day cab under 450,000 miles">Day cab</button>
+        </div>
+        <div class="invp__ai-note" id="aiNote" aria-live="polite"></div>
+      </form>
+
+      <div class="invp__grid">
+        <!-- Option B: fixed left filter menu -->
+        <aside class="filters" id="filters" aria-label="Filter trucks">
+          <div class="filters__head">
+            <h2>Filters</h2>
+            <button type="button" class="filters__reset" id="fReset">Reset all</button>
+          </div>
+          <div class="fgroup">
+            <h3>Search</h3>
+            <label class="sr" for="fKw">Keyword or stock number</label>
+            <input class="fsearch" id="fKw" type="search" placeholder="Keyword or stock #">
+          </div>
+          <div class="fgroup"><h3>Truck type</h3><div id="fType"></div></div>
+          <div class="fgroup"><h3>Make</h3><div id="fMake"></div></div>
+          <div class="fgroup"><h3>Duty</h3><div id="fDuty"></div></div>
+          <div class="fgroup">
+            <h3>Year</h3>
+            <div class="frange">
+              <label class="sr" for="fYmin">Year from</label><select id="fYmin"></select>
+              <label class="sr" for="fYmax">Year to</label><select id="fYmax"></select>
+            </div>
+          </div>
+          <div class="fgroup">
+            <h3>Max price</h3>
+            <label class="sr" for="fPrice">Maximum price</label>
+            <select class="fsel" id="fPrice">
+              <option value="">Any price</option><option value="40000">Under $40,000</option><option value="60000">Under $60,000</option><option value="80000">Under $80,000</option><option value="100000">Under $100,000</option><option value="125000">Under $125,000</option><option value="150000">Under $150,000</option>
+            </select>
+          </div>
+          <div class="fgroup">
+            <h3>Max mileage</h3>
+            <label class="sr" for="fMiles">Maximum mileage</label>
+            <select class="fsel" id="fMiles">
+              <option value="">Any mileage</option><option value="75000">Under 75,000</option><option value="100000">Under 100,000</option><option value="150000">Under 150,000</option><option value="250000">Under 250,000</option><option value="450000">Under 450,000</option>
+            </select>
+          </div>
+          <div class="fgroup">
+            <h3>License</h3>
+            <label class="fcheck"><input type="checkbox" id="fNonCdl">Non-CDL only (26,000 lb GVWR or less)</label>
+          </div>
+          <button type="button" class="btn btn--red filters__close" id="fDone"><span>Show trucks</span></button>
+        </aside>
+
+        <div>
+          <div class="invp__bar">
+            <div class="invp__count" id="count" aria-live="polite"></div>
+            <div class="invp__tools">
+              <button type="button" class="btn btn--line btn--sm invp__fbtn" id="fOpen"><svg><use href="#i-filter"/></svg><span>Filters</span></button>
+              <label class="sr" for="sort">Sort</label>
+              <select class="fsel" id="sort" style="width:auto">
+                <option value="new">Newest first</option>
+                <option value="plow">Price: low to high</option>
+                <option value="phigh">Price: high to low</option>
+                <option value="miles">Lowest mileage</option>
+              </select>
+            </div>
+          </div>
+          <div class="chipsrow" id="active"></div>
+          <div class="tgrid" id="results"></div>
+          <div class="invp__empty" id="empty" hidden>
+            <h3>No exact matches</h3>
+            <p>New trucks arrive every week. Loosen a filter, or let us find one for you.</p>
+            <a href="tel:7403974969" class="btn btn--red btn--sm"><span>Call 740-397-4969</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog class="tdlg" id="tdlg" aria-labelledby="tdTitle">
+  <button type="button" class="tdlg__x" id="tdX" aria-label="Close">&times;</button>
+  <div class="tdlg__in" id="tdBody"></div>
+</dialog>
+
+<div class="review" role="group" aria-label="Design review: search layout">
+  <span>Review</span>
+  <button type="button" data-mode="both" aria-pressed="true">Both</button>
+  <button type="button" data-mode="ai" aria-pressed="false">AI search</button>
+  <button type="button" data-mode="filter" aria-pressed="false">Filter menu</button>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <img src="images/rts-logo-white.svg" alt="Robertson Truck Sales" width="220" height="59">
+      <nav aria-label="Footer">
+        <a href="inventory.html">Inventory</a><a href="trade.html">Value My Trade</a><a href="capabilities.html">Capabilities</a><a href="about.html">About Us</a><a href="blog.html">Blog</a><a href="contact.html">Contact Us</a><a href="rtg.html">Robertson Truck Group</a>
+      </nav>
+    </div>
+    <div class="foot__bottom">
+      <span>Robertson Truck Group © <span id="year">2026</span></span>
+      <nav aria-label="Legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Employee Portal</a><a href="#">Sitemap</a></nav>
+      <span class="foot__credit"><a href="#">Responsive Web Design Company</a> – <a href="#">Split Reef</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/inventory-data.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/site.js"></script>
+<script src="js/inventory.js"></script>
+</body>
+</html>
