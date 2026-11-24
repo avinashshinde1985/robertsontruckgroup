@@ -18,11 +18,16 @@
   };
   var TIMELINES = ['Less than 1 month', '1–3 months', '3–6 months', 'Just browsing'];
 
+  /* Folder prefixes so the same chat works on RTS pages and on OTE pages (which sit in ../ote/).
+     A page sets window.RTG_PATHS = { rts: '../rts/', ote: '' } before loading this file. */
+  var PATHS = window.RTG_PATHS || {};
+  var R = PATHS.rts || '', O = PATHS.ote != null ? PATHS.ote : '../ote/';
+
   var FAQ = [
     { k: /financ|loan|credit|payment|budget/i, a: 'We help you find the right financing and guide you through the whole process. Most customers start with our online Finance Application, and a rep follows up the same business day.' },
     { k: /where|locat|address|hours|visit|direction/i, a: 'Robertson Truck Sales is at 8920 Columbus Rd., Mount Vernon, OH 43050: a 15-acre campus with a full mechanical and detail shop. Call 740-397-4969 anytime.' },
     { k: /upfit|install|fabricat|body|wheelbase|frame/i, a: 'Yes. Ohio Truck Equipment can install dump bodies, flatbeds and more, plus frame and wheelbase changes, on any truck in our inventory or on yours.' },
-    { k: /trade|sell my|value/i, a: 'We take trades. Use Value My Trade: add the year, make, model and a few photos and a sales rep will follow up with a number.', link: { href: 'trade.html', label: 'Value My Trade' } },
+    { k: /trade|sell my|value/i, a: 'We take trades. Use Value My Trade: add the year, make, model and a few photos and a sales rep will follow up with a number.', link: { href: R + 'trade.html', label: 'Value My Trade' } },
     { k: /lease|rent|container|storage|trailer/i, a: 'Equipment Leasing Solutions leases over 100 containers and 200 storage trailers across Ohio, delivered to your site.' }
   ];
 
@@ -43,7 +48,7 @@
     this.root.classList.add('rchat');
     this.root.innerHTML =
       '<div class="rchat__head">' +
-        '<div class="rchat__avatar"><img src="images/rts-emblem.svg" alt=""></div>' +
+        '<div class="rchat__avatar"><img src="' + R + 'images/rts-emblem.svg" alt=""></div>' +
         '<div class="rchat__who"><strong>Robertson Assistant</strong><span><i></i>Typically replies instantly</span></div>' +
         '<button type="button" class="rchat__close" aria-label="Close chat">&times;</button>' +
       '</div>' +
@@ -112,7 +117,7 @@
       self.lead.company = o.co;
       if (o.trade) {
         self.lead.interest = 'Trade-in';
-        return self.bot('Easy. Our <a href="trade.html">Value My Trade</a> form takes about two minutes: year, make, model and a few photos. A sales rep follows up with a number.', function () { self.askTimeline(); });
+        return self.bot('Easy. Our <a href="' + R + 'trade.html">Value My Trade</a> form takes about two minutes: year, make, model and a few photos. A sales rep follows up with a number.', function () { self.askTimeline(); });
       }
       if (o.co === 'rts') return self.askTruckType();
       if (o.co === 'ote') return self.askBodyType();
@@ -137,9 +142,9 @@
       return this.bot('Nothing listed in that category this week, but new trucks come in all the time.', function () { self.askTimeline(); });
     }
     var cards = hits.map(function (t) {
-      return '<a class="rcard" href="inventory.html#stock-' + t.stock + '"><img src="' + t.img + '" alt=""><span><b>' + t.year + ' ' + t.make + ' ' + t.model + '</b><small>' + money(t.price) + ' · ' + t.miles.toLocaleString('en-US') + ' mi</small></span></a>';
+      return '<a class="rcard" href="' + R + 'inventory.html#stock-' + t.stock + '"><img src="' + R + t.img + '" alt=""><span><b>' + t.year + ' ' + t.make + ' ' + t.model + '</b><small>' + money(t.price) + ' · ' + t.miles.toLocaleString('en-US') + ' mi</small></span></a>';
     }).join('');
-    this.bot('Here ' + (hits.length === 1 ? 'is one' : 'are a few') + ' in stock right now:<div class="rcards">' + cards + '</div><a class="rlink" href="inventory.html' + (type === 'Not sure yet' ? '' : '?type=' + encodeURIComponent(type)) + '">See all in inventory →</a>', function () {
+    this.bot('Here ' + (hits.length === 1 ? 'is one' : 'are a few') + ' in stock right now:<div class="rcards">' + cards + '</div><a class="rlink" href="' + R + 'inventory.html' +(type === 'Not sure yet' ? '' : '?type=' + encodeURIComponent(type)) + '">See all in inventory →</a>', function () {
       self.askTimeline();
     });
   };
@@ -147,9 +152,21 @@
   Chat.prototype.askBodyType = function () {
     var self = this;
     this.bot('Which body or equipment?', function () {
-      self.options(['Dump body', 'Flatbed', 'Service body', 'Van body', 'Hoist or hook lift', 'Not sure yet'], function (t) {
+      var BODY = { 'Dump body': 'Dump Body', 'Flatbed': 'Flatbed', 'Landscape body': 'Landscape Body', 'Hooklift / Switch-N-Go': 'Hooklift', 'Carrier or wrecker': 'Carrier & Wrecker', 'Snow & ice': 'Snow & Ice', 'Not sure yet': null };
+      self.options(Object.keys(BODY), function (t) {
         self.lead.interest = t;
-        self.bot('Ohio Truck Equipment stocks and installs ' + (t === 'Not sure yet' ? 'bodies and equipment' : t.toLowerCase() + 's') + '. To quote an install, a rep needs your wheelbase measurement and a few truck photos. Here is <a href="capabilities.html#measure">how to measure your wheelbase</a>.', function () { self.askTimeline(); });
+        var how = 'To quote an install, a rep needs your wheelbase measurement and a few truck photos. Here is <a href="' + O + 'tutorials.html#wheelbase">how to measure your wheelbase</a>.';
+        // Value first: show matching bodies when the OTE inventory is loaded on this page
+        var bodies = (window.OTE_BODIES || []).filter(function (b) { return !BODY[t] || b.type === BODY[t]; }).slice(0, 3);
+        if (bodies.length) {
+          var cards = bodies.map(function (b) {
+            return '<a class="rcard" href="' + O + 'inventory.html#stock-' + b.stock + '"><img src="' + b.img + '" alt=""><span><b>' + esc(b.brand + ' ' + b.model) + '</b><small>' + b.len + ' ft · ' + (b.price ? money(b.price) : 'Call for price') + '</small></span></a>';
+          }).join('');
+          return self.bot('Here ' + (bodies.length === 1 ? 'is one' : 'are a few') + ' in stock:<div class="rcards">' + cards + '</div><a class="rlink" href="' + O + 'inventory.html' + (BODY[t] ? '?type=' + encodeURIComponent(BODY[t]) : '') + '">See all bodies →</a>', function () {
+            self.bot(how, function () { self.askTimeline(); });
+          });
+        }
+        self.bot('Ohio Truck Equipment stocks and installs ' + (t === 'Not sure yet' ? 'bodies and equipment' : t.toLowerCase() + 's') + '. ' + how, function () { self.askTimeline(); });
       });
     });
   };
@@ -230,7 +247,7 @@
   Chat.prototype.more = function () {
     var self = this;
     this.options(['Browse inventory', 'Start over'], function (o) {
-      if (o === 'Browse inventory') { location.href = 'inventory.html'; return; }
+      if (o === 'Browse inventory') { location.href = self.lead.company === 'ote' ? O + 'inventory.html' : R + 'inventory.html'; return; }
       self.lead = { company: null, interest: null, timeline: null, name: null, contact: null, page: self.lead.page };
       self.waiting = null;
       self.start();
