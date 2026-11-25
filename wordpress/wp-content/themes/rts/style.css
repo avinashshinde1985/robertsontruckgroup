@@ -1,0 +1,13 @@
+/*
+Theme Name: Robertson Truck Sales
+Theme URI: https://robertsontruckgroup.com/rts/
+Author: Split Reef
+Author URI: https://www.splitreef.com/
+Description: Robertson Truck Sales site, converted from the Nov 2026 static design. Also the parent theme for Ohio Truck Equipment: it holds the shared CSS, JS, images, header/footer parts and page plumbing. Each page design is a page template in page-templates/.
+Version: 1.0.0
+Requires at least: 6.4
+Requires PHP: 7.4
+Text Domain: rts
+*/
+
+/* Page styles live in assets/css and are enqueued per page template (see inc/assets.php). */

@@ -1,0 +1,14 @@
+/*
+Theme Name: Ohio Truck Equipment
+Theme URI: https://robertsontruckgroup.com/ote/
+Author: Split Reef
+Author URI: https://www.splitreef.com/
+Description: Ohio Truck Equipment site, converted from the Nov 2026 static design. Child theme of Robertson Truck Sales, which provides the shared CSS, JS, images and header/footer parts.
+Template: rts
+Version: 1.0.0
+Requires at least: 6.4
+Requires PHP: 7.4
+Text Domain: ote
+*/
+
+/* Page styles live in assets/css (and the parent theme's assets) and are enqueued per page template. */

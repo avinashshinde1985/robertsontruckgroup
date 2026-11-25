@@ -1,0 +1,115 @@
+<?php
+/**
+ * Template Name: Wheelbase Sheet
+ *
+ * Converted from rts/wheelbase-sheet.html.
+ *
+ * @package RTS
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+rtg_fields_for( 'wheelbase-sheet' );
+?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wheelbase Sheet | Ohio Truck Equipment</title>
+  <meta name="description" content="Printable wheelbase measurement sheet. Fill it out and upload it with your body install quote request.">
+  <link rel="icon" type="image/png" href="<?php rtg_a( 'images/favicon.png' ); ?>">
+  <style>
+    :root{--navy:#091F4F;--red:#BD1539;--line:#c9cfdb;--muted:#5b6478}
+    *{box-sizing:border-box}
+    body{margin:0;background:#e9ecf2;color:#0f1830;font:15px/1.5 "Segoe UI",system-ui,-apple-system,sans-serif}
+    .bar{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;background:#050a1a;color:#fff}
+    .bar a{color:#fff}
+    .bar button{border:0;border-radius:999px;padding:10px 18px;background:var(--red);color:#fff;font:700 .9rem inherit;cursor:pointer}
+    .page{width:min(816px,100% - 32px);margin:24px auto;padding:40px 44px;background:#fff;box-shadow:0 20px 50px -30px rgba(0,0,0,.4)}
+    header{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:3px solid var(--navy);padding-bottom:14px;margin-bottom:20px}
+    header img{height:48px;width:auto}
+    h1{font-size:1.6rem;margin:0;color:var(--navy);text-transform:uppercase;letter-spacing:.5px}
+    h2{font-size:1rem;margin:22px 0 8px;color:var(--red);text-transform:uppercase;letter-spacing:1px}
+    p{margin:0 0 8px;color:var(--muted)}
+    ol{margin:0;padding-left:20px}
+    li{margin-bottom:4px}
+    svg.dia{width:100%;height:auto;border:1px solid var(--line);border-radius:8px;margin:6px 0}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
+    .f{display:flex;align-items:flex-end;gap:10px;font-weight:600;font-size:.9rem}
+    .f span{flex:1;border-bottom:1px solid #0f1830;height:24px}
+    .f--full{grid-column:1/-1}
+    .boxes{display:flex;gap:18px;font-size:.9rem}
+    .boxes i{display:inline-block;width:14px;height:14px;border:1.5px solid #0f1830;vertical-align:-2px;margin-right:6px}
+    footer{margin-top:26px;padding-top:12px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    @media (max-width:600px){.page{padding:24px 18px}.grid{grid-template-columns:1fr}}
+    @media print{body{background:#fff}.bar{display:none}.page{margin:0;width:auto;box-shadow:none;padding:0}@page{margin:14mm}}
+  </style>
+</head>
+<body>
+<div class="bar"><a href="<?php echo esc_url( rtg_f( 'bar_back_url' ) ); ?>"><?php rtg_e( 'bar_back_label' ); ?></a><button type="button" onclick="window.print()"><?php rtg_e( 'bar_print' ); ?></button></div>
+<div class="page">
+  <header>
+    <h1><?php rtg_e( 'head_title' ); ?></h1>
+    <img src="<?php echo esc_url( rtg_f( 'head_logo' ) ); ?>" alt="Ohio Truck Equipment">
+  </header>
+
+  <h2><?php rtg_e( 'measure_title' ); ?></h2>
+  <ol>
+<?php foreach ( rtg_items( 'measure_steps' ) as $it ) : ?>
+    <li><?php echo $it['text']; ?></li>
+<?php endforeach; ?>
+  </ol>
+
+  <svg class="dia" viewBox="0 0 900 300" role="img" aria-label="Truck side view showing wheelbase, cab-to-axle and frame behind cab">
+    <line x1="10" y1="250" x2="890" y2="250" stroke="#c9cfdb" stroke-width="2"/>
+    <rect x="40" y="180" width="800" height="14" rx="3" fill="#091F4F"/>
+    <path d="M30 186V140q2-12 16-14l100-7 16-62q3-7 11-7h80q10 0 10 10v126z" fill="#091F4F"/>
+    <circle cx="120" cy="215" r="34" fill="#0f1830"/><circle cx="120" cy="215" r="12" fill="#fff"/>
+    <circle cx="610" cy="215" r="34" fill="#0f1830"/><circle cx="610" cy="215" r="12" fill="#fff"/>
+    <g stroke="#BD1539" stroke-width="2" fill="#BD1539" font-family="Segoe UI,sans-serif" font-size="18" font-weight="700">
+      <line x1="120" y1="270" x2="610" y2="270"/><line x1="120" y1="262" x2="120" y2="278"/><line x1="610" y1="262" x2="610" y2="278"/>
+      <text x="365" y="295" text-anchor="middle" stroke="none">WB</text>
+      <line x1="263" y1="30" x2="610" y2="30"/><line x1="263" y1="22" x2="263" y2="38"/><line x1="610" y1="22" x2="610" y2="38"/>
+      <text x="436" y="22" text-anchor="middle" stroke="none">CA</text>
+      <line x1="263" y1="160" x2="840" y2="160" stroke-dasharray="6 6"/><text x="740" y="152" text-anchor="middle" stroke="none">Frame behind cab</text>
+    </g>
+  </svg>
+
+  <h2><?php rtg_e( 'truck_title' ); ?></h2>
+  <div class="grid">
+    <div class="f">Year<span></span></div><div class="f">Make<span></span></div>
+    <div class="f">Model<span></span></div><div class="f">VIN<span></span></div>
+  </div>
+
+  <h2><?php rtg_e( 'meas_title' ); ?></h2>
+  <div class="grid">
+    <div class="f">Wheelbase (WB)<span></span></div>
+    <div class="f">Cab-to-axle (CA)<span></span></div>
+    <div class="f">Frame behind cab<span></span></div>
+    <div class="f">Rear overhang<span></span></div>
+    <div class="f">GVWR (lb)<span></span></div>
+    <div class="f">Rear axle rating (lb)<span></span></div>
+    <div class="f f--full boxes">Rear axle: <label><i></i>Single</label><label><i></i>Tandem</label></div>
+    <div class="f f--full boxes">Fuel/DEF tanks behind cab? <label><i></i>Yes</label><label><i></i>No</label></div>
+  </div>
+
+  <h2><?php rtg_e( 'body_title' ); ?></h2>
+  <div class="grid">
+    <div class="f">Body type<span></span></div><div class="f">Length<span></span></div>
+    <div class="f f--full">Notes<span></span></div>
+  </div>
+
+  <h2><?php rtg_e( 'contact_title' ); ?></h2>
+  <div class="grid">
+    <div class="f">Name<span></span></div><div class="f">Phone<span></span></div>
+  </div>
+
+  <footer>
+    <span><?php rtg_e( 'foot_note' ); ?></span>
+    <span><?php rtg_e( 'foot_contact' ); ?></span>
+
+  </footer>
+</div>
+</body>
+</html>

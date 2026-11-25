@@ -1,0 +1,14 @@
+/* Editor content on generic pages (page.php, index.php, 404.php) inside the dark v2 chrome. */
+.wpc{padding:150px 0 90px;min-height:70vh}
+.wpc__wrap{max-width:880px}
+.wpc .crumb{margin-bottom:18px}
+.wpc h1{margin:0 0 28px}
+.wpc__body{color:rgba(255,255,255,.82);font-size:1.05rem;line-height:1.7}
+.wpc__body > * + *{margin-top:1.1em}
+.wpc__body h2,.wpc__body h3{color:#fff;line-height:1.2;margin-top:1.8em}
+.wpc__body a:not(.btn){color:#fff;text-decoration:underline;text-underline-offset:3px}
+.wpc__body img{max-width:100%;height:auto;border-radius:12px}
+.wpc__body ul,.wpc__body ol{padding-left:1.2em}
+.wpc__list{list-style:none;padding:0}
+.wpc__list li{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.wpc__list small{opacity:.6;margin-left:8px}

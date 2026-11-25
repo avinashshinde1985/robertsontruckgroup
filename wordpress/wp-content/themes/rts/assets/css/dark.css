@@ -1,0 +1,137 @@
+/* =========================================================
+   Dark premium theme for the inner pages (Nov 2026 revisions)
+   Load LAST, after style.css / inner.css / page css.
+   Matches index-v2: deep navy base, red + blue glows, Big Shoulders + Manrope.
+   ========================================================= */
+:root{
+  --navy:#0d1b45;          /* now a dark surface colour, not a text colour */
+  --navy-900:#050a1a;
+  --navy-800:#081230;
+  --navy-700:#16296a;
+  --ink:#e6eaf3;
+  --muted:#9aa4bf;
+  --line:rgba(255,255,255,.1);
+  --bg:#050a1a;
+  --bg-soft:#081230;
+  --panel:#0b1433;
+  --red-hot:#ff2d55;
+  --shadow:0 24px 60px -24px rgba(0,0,0,.7);
+  --shadow-lg:0 40px 90px -30px rgba(0,0,0,.85);
+  --f-head:"Big Shoulders Display","Arial Narrow",sans-serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+body{background:var(--bg);color:var(--ink)}
+::selection{background:var(--red);color:#fff}
+h1,h2,h3,h4{color:#fff;letter-spacing:.5px}
+h2{font-weight:900}
+p{color:var(--muted)}
+:focus-visible{outline-color:var(--red-hot)}
+
+/* ---------- Gradient accent like the home page ---------- */
+.hero h1 .hl,.grad{background:linear-gradient(90deg,#ff3b63,#BD1539 40%,#7aa2ff);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0}
+.hero h1 .hl::after{display:none}
+.eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:500;font-size:.78rem;letter-spacing:1px;color:var(--red-hot)}
+.eyebrow::before{width:18px;height:2px;background:var(--red-hot)}
+
+/* ---------- Calm motion: drop the always-running loops ---------- */
+.about__badge,.float-card,.what__badge{animation:none!important}
+.hero .eyebrow .dot,.vplayer__dot{animation:none}
+.vplayer__play::before,.vplayer__play::after{animation:none;opacity:0}
+.hero__slide{transition:opacity 1.6s ease,transform 9s linear}
+.btn:hover{transform:none}
+
+/* ---------- Top bar + header ---------- */
+.topbar{background:#03060f;border-bottom:1px solid var(--line)}
+.header{background:rgba(5,10,26,.82);border-bottom:1px solid var(--line)}
+.header.is-scrolled{box-shadow:0 14px 40px -20px rgba(0,0,0,.9);border-color:var(--line)}
+.nav a{color:#c9d0e4}
+.nav a:hover{color:#fff}
+.nav a.is-active{color:#fff}
+.nav a.nav__inv{color:#fff}
+.nav a.nav__inv::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red-hot);margin-right:7px;vertical-align:1px}
+.header__phone{color:#fff}
+.header__phone-ic{background:rgba(255,45,85,.14);color:var(--red-hot)}
+.burger{background:rgba(255,255,255,.1)}
+.btn--navy{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);color:#fff;box-shadow:none}
+.btn--navy:hover{background:#fff;color:var(--bg)}
+.btn--red{box-shadow:0 14px 40px -12px rgba(189,21,57,.8)}
+
+/* ---------- Generic light surfaces → dark panels ---------- */
+.stats__grid,.pcard,.float-card,.gcard,.guide__note,.loc,.what__badge,.tl__dot,.tcard,.wloc,.fpost,.pchip,.psearch,.side__card,.shop,.diagram,.dial__grid,.formcard,.info__careers,.faq,.share__btn,.pnav__item,.toc,.share--side,.toc-m,.glancebox__vs,.pempty>svg,.mbar{background:var(--panel);border-color:var(--line)}
+.stats__grid{border:1px solid var(--line)}
+.stat{border-color:var(--line)}
+.about__img--small{border-color:var(--bg)}
+.where__map{background:#0a1230;border-color:var(--line)}
+.gbar{background:rgba(8,14,36,.85);border-color:var(--line)}
+.hsearch__field{background:#0a1230;box-shadow:inset 0 0 0 1px var(--line)}
+.hsearch__field input{color:#fff}
+.field input,.field select,.field textarea{background:#0a1230;color:#fff;border-color:var(--line)}
+.field input:focus,.field select:focus,.field textarea:focus{background:#0a1230;border-color:var(--red-hot);box-shadow:0 0 0 4px rgba(255,45,85,.12)}
+.field select option{background:#0a1230}
+.field.is-invalid input,.field.is-invalid textarea{background:rgba(255,45,85,.08)}
+.factors li:hover{background:rgba(255,45,85,.08)}
+.dlogo{border-color:transparent}
+.cta{background:linear-gradient(120deg,#BD1539 0%,#7d0c25 50%,#091F4F 100%)}
+.cta__actions{background:rgba(5,10,26,.25)}
+.why,.all,.info__card,.takeaways,.glancebox__col--buy,.diagram__info{background:#0a1534}
+.fcard,.gitem{background:#0a1230}
+.shop__ic{background:linear-gradient(135deg,#BD1539,#6d0b22)}
+.shop__num,.gcard__num{-webkit-text-stroke-color:rgba(255,255,255,.12)}
+.tl::before{background:rgba(255,255,255,.12)}
+.tl__dot{border-color:rgba(255,255,255,.15)}
+.pmore__bar{background:var(--line)}
+
+/* ---------- Text that used navy as its colour ---------- */
+.stat strong,.checks li,.link-phone,.float-card strong,.guide__note,.what__badge strong,.tl__dot,.chip:hover,.tcard__mail,.wloc__ic,.wloc__txt strong,
+.fpost__new,.pchip,.psearch__clear,.pstatus b,.side__topics button,.side__topics em,.side__recent b,
+.factors li,.seg__btn:hover,.dcard__ic,.dcard__txt b,.dept legend,.dept__opt>span,.field--select label,.cform__note b,.info__careers b,
+.gf:hover,.gf__n,.gbar__count b,
+.prose strong,.glancebox__col b,.faq summary,.post__tags a,.share__btn,.pnav__item b,.toc__head b,.toc-list a:hover,.toc-list a.is-active,.toc-m summary,.mbar a{color:#fff}
+.tl__item.is-on .tl__year{color:#fff;-webkit-text-stroke-color:#fff}
+.toc-list a.is-read::before{color:var(--red-hot)}
+.link-phone span{border-color:var(--line)}
+.cbtn{border-color:rgba(255,255,255,.3);color:#fff}
+.cbtn:hover{background:#fff;color:var(--bg)}
+.pchip:hover,.psearch:focus-within,.dept__opt:hover>span{border-color:var(--red-hot)}
+.psearch:focus-within{box-shadow:0 0 0 4px rgba(255,45,85,.12)}
+.pchip.is-active,.chip.is-active,.gf.is-active,.dept__opt input:checked+span,.wloc.is-active,.post__tags a:hover{background:var(--red);border-color:var(--red);color:#fff}
+.side__topics button:hover,.side__topics button.is-active{background:rgba(255,45,85,.08);color:#fff}
+.toc-list a.is-active{background:rgba(255,45,85,.1)}
+.seg__btn.is-active{background:rgba(255,255,255,.12)}
+.loc a{color:var(--red-hot)}
+.loc__ic{background:rgba(255,255,255,.06);color:#fff}
+
+/* ---------- Capabilities truck diagram ---------- */
+.truck__grid{stroke:rgba(255,255,255,.04)}
+.truck__cab{fill:#24386e}
+.truck__frame{fill:#4b5878}
+.truck__wheel circle:first-child{fill:#020512}
+.truck__body rect{fill:rgba(255,255,255,.03);stroke:#5d6a8a}
+.truck__body text{fill:#5d6a8a}
+.dim__pill{fill:#0b1433}
+.dim__txt{fill:#fff}
+
+/* ---------- Footer ---------- */
+.footer{background:#03060f;border-top:1px solid var(--line)}
+.footer__brand .footer__rtg{height:40px;margin-top:6px}
+
+/* ---------- Floating chat vs. mobile bar ---------- */
+@media (max-width:1024px){
+  .header{background:#050a1a}
+  .nav{background:#0a1230}
+  .nav a.is-active{color:var(--red-hot)}
+}
+@media (max-width:680px){
+  .mbar{box-shadow:0 -10px 30px -10px rgba(0,0,0,.8)}
+  .totop{left:16px;right:auto}
+}
+
+/* ---------- Capabilities: inventory tie-in ---------- */
+.capflow{padding:clamp(60px,8vw,100px) 0;background:var(--bg)}
+.capflow__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:cf}
+.capflow__step{position:relative;display:flex;flex-direction:column;align-items:flex-start;padding:28px;border-radius:22px;background:var(--panel);border:1px solid var(--line);counter-increment:cf}
+.capflow__step::before{content:"0" counter(cf);font-family:var(--f-head);font-size:3.4rem;font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.25);margin-bottom:14px}
+.capflow__step h3{font-size:1.6rem}
+.capflow__step p{font-size:.93rem}
+.capflow__step .btn{margin-top:auto}
+@media (max-width:1024px){.capflow__grid{grid-template-columns:1fr}}

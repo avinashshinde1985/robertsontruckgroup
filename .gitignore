@@ -3,6 +3,20 @@
 !/.gitignore
 !/rts/
 !/ote/
+
+# WordPress Multisite: track the converted themes and setup scripts, not WordPress core or uploads
+!/wordpress/
+/wordpress/*
+!/wordpress/README.md
+!/wordpress/setup/
+/wordpress/setup/wp-cli.phar
+!/wordpress/wp-content/
+/wordpress/wp-content/*
+!/wordpress/wp-content/themes/
+/wordpress/wp-content/themes/*
+!/wordpress/wp-content/themes/rts/
+!/wordpress/wp-content/themes/ote/
+
 Thumbs.db
 desktop.ini
 .DS_Store
